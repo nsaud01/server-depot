@@ -43,5 +43,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # This plugin adds the class methods attr_accessible and attr_protected to your models to be able to declare white or black lists of attributes.
+  gem 'protected_attributes'
+  
 end
 

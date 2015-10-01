@@ -1,14 +1,21 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+
 <h1>Your Pragmatic Catalog</h1>
+
 <% @products.each do |product| %>
-<div class="entry">
-<%= image_tag(product.image_url) %>
-<h3><%= product.title %></h3>
-<%= sanitize(product.description) %>
-<div class="version_line">
-<span class="version"><%= product.version %></span>
-</div>
-</div>
+  <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3>
+    <p><%= sanitize(product.description) %></p>
+    <div class="version_line">
+<!-- START:version -->
+      <span class="price"><%= number_to_currency(product.version) %></span>
+<!-- START_HIGHLIGHT -->
+	  <%= button_to 'Add', line_items_path(product_id: product) %>
+<!-- END_HIGHLIGHT -->
+<!-- END:version -->
+    </div>
+  </div>
 <% end %>
